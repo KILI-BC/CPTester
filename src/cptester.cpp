@@ -6,7 +6,8 @@ int main(int argc, char* argv[])
 {
         if (argc != 3) {
                 cerr << "You entered the wrong number of arguments" << endl;
-                cerr << "Use this program like this: name <file to test> <number of testcases>" << endl;
+                cerr << "Use this program like this:" << endl;
+                cerr << argv[0] << " <file to test> <number of testcases>" << endl;
                 return 1;
         }
 
@@ -16,7 +17,7 @@ int main(int argc, char* argv[])
                 n = stoi(argv[2]);
         }
         catch (invalid_argument e) {
-                cerr << "The second parameter must be an integer (the number of testcases)" << endl;
+                cerr << "The second parameter must be a positive integer (the number of testcases)" << endl;
                 return 1;
         }
 
@@ -31,7 +32,7 @@ int main(int argc, char* argv[])
                 int ret = system(cmd.c_str());
 
                 if (ret != 0) {
-                        cerr << "Error executing '" << argv[0] << "'" << endl;
+                        cerr << "Error executing '" << argv[1] << "'" << endl;
                         return 1;
                 }
 
@@ -47,8 +48,7 @@ int main(int argc, char* argv[])
                 }
 
                 string line, line2;
-                while (getline(ans, line))
-                {
+                while (getline(ans, line)) {
                         getline(out, line2);
                         if (line != line2) {
                                 cout << "Discrepancies on test" << i << endl;
@@ -57,12 +57,14 @@ int main(int argc, char* argv[])
                                 return 2;
                         }
                 }
+
                 getline(out, line2);
                 if (!out.eof()) {
                         cout << "Discrepancies on test" << i << endl;
                         cout << "got more output than expected" << endl;
                         return 2;
                 }
+
                 ans.close();
                 out.close();
         }
