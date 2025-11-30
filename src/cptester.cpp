@@ -32,7 +32,8 @@ int main(int argc, char* argv[])
                 int ret = system(cmd.c_str());
 
                 if (ret != 0) {
-                        cerr << "Error executing '" << argv[1] << "'" << endl;
+                        cerr << "Error on execution of command '" << cmd << "'" << endl;
+                        cerr << "Possible cause: " << to_string(i) << ".in does not exist" << endl;
                         return 1;
                 }
 
