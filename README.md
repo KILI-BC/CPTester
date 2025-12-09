@@ -1,5 +1,6 @@
 # CPTester
 ### A command line program that automatically tests another program
+### Please note that CPTester currently only works on Windows
 ## What exactly is CPTester?
 This project is intended to be used to automate the testing of another program.
 It is acomplished using `.in`-files and `.ans`-files that contain the expected input and output of the program in plain-text format.
@@ -23,4 +24,4 @@ For each testcase the program executes the file that is supposed to be tested an
 Contribution to this project is not possible at the current point in time.
 
 ## Known Issues
-None. If you find some feel free to report them [here](https://github.com/KILI-BC/CPTester/issues). I might fix them if I get arround to it.
+This project currently only works on windows. If you find issues feel free to report them [here](https://github.com/KILI-BC/CPTester/issues). I might fix them if I get arround to it.
